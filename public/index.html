@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09070e">
+  <meta name="description" content="AI Virtual Wardrobe Studio">
+  <title>AI Virtual Wardrobe Studio</title>
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">✧ AI WARDROBE</div>
+    <span id="status">Studio gaya</span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">YOUR PERSONAL VIRTUAL WARDROBE</p>
+      <h1>Satu model. <em>Seribu gaya.</em></h1>
+      <p>Pilih pakaian. Sentuh gaya. Biarkan imajinasi jadi nyata.</p>
+    </section>
+
+    <div class="workspace">
+      <section class="panel">
+        <h2>01. Model Anda</h2>
+        <p>Unggah foto model untuk memulai.</p>
+
+        <label class="upload" for="photo">
+          <span class="upload-icon">＋</span>
+          <strong>Pilih foto model</strong>
+          <small>JPG, PNG atau WebP · Maksimal 10 MB</small>
+        </label>
+        <input id="photo" type="file" accept="image/jpeg,image/png,image/webp" hidden>
+
+        <div id="photo-preview" class="preview hidden">
+          <img id="original-image" alt="Foto model">
+          <button id="remove-photo" class="secondary">Hapus foto</button>
+        </div>
+
+        <h2>02. Pilih kategori</h2>
+        <div class="categories">
+          <button class="category active" data-category="Kebaya">Kebaya</button>
+          <button class="category" data-category="Hijab">Hijab</button>
+          <button class="category" data-category="Gaun">Gaun</button>
+          <button class="category" data-category="Atasan">Atasan</button>
+          <button class="category" data-category="Bawahan">Bawahan</button>
+          <button class="category" data-category="Aksesori">Aksesori</button>
+        </div>
+
+        <h2>03. Deskripsi pakaian</h2>
+        <textarea id="prompt" rows="4" placeholder="Contoh: Kebaya pink pastel mewah dengan bordir bunga, kain satin, elegan dan realistis..."></textarea>
+
+        <h2>04. Rasio gambar</h2>
+        <select id="ratio">
+          <option value="9:16">9:16 · Portrait</option>
+          <option value="3:4">3:4 · Portrait</option>
+          <option value="1:1">1:1 · Square</option>
+        </select>
+
+        <button id="generate" class="primary">✧ Buat gambar AI</button>
+        <p class="note">Identitas wajah diupayakan tetap terjaga. Hasil AI dapat bervariasi.</p>
+      </section>
+
+      <section class="panel result-panel">
+        <h2>Ruang gaya</h2>
+        <p>Hasil kreasi Anda akan muncul di sini.</p>
+
+        <div class="result" id="result">
+          <div id="empty">
+            <div class="sparkle">✧</div>
+            <p>Belum ada hasil gambar</p>
+            <small>Unggah foto dan mulai berkreasi.</small>
+          </div>
+          <img id="result-image" class="hidden" alt="Hasil Virtual Wardrobe">
+        </div>
+
+        <p id="message" role="status">Siap untuk berkreasi.</p>
+        <button id="download" class="secondary hidden">↓ Simpan gambar</button>
+      </section>
+    </div>
+
+    <footer>
+      <p>AI VIRTUAL WARDROBE STUDIO</p>
+      <small>Creative fashion powered by AI</small>
+    </footer>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
